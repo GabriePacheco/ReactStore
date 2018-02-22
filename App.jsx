@@ -1,5 +1,6 @@
 import React from 'react';
 import Barra from './barra.jsx';
+import Productos from './productos.jsx';
 
 class App extends React.Component{
 	constructor(){
@@ -10,7 +11,7 @@ class App extends React.Component{
       return(
           <div calss="appContenido">
             <Barra></Barra>
-            
+            <Productos> </Productos>
           </div>
 
         );

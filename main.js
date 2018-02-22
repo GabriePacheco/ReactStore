@@ -5,16 +5,16 @@ import { BrowserRouter, Route} from 'react-router-dom';
 import App from './App.jsx';
 import Login from './login.jsx';
 import Carrito from './carrito.jsx';
-import Item from './carrito.jsx';
+import Item from './item.jsx';
 
 
 ReactDom.render(
 		(<BrowserRouter>
 			<Switch>
 				<Route exact path='/'  component= { Login } />
-				<Route path='/app'  component= { App } />
-				<Route path='/carrito'  component= { Carrito } />
-				<Route path='/Item'  component= { Item } />
+				<Route exact path='/app'  component= { App } />
+				<Route exact path='/carrito'  component= { Carrito } />
+				<Route exact path='/item/:name'  component= { Item } />
 			</Switch>
 		</BrowserRouter> ), 
 		document.getElementById('app')

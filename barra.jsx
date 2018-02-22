@@ -19,7 +19,7 @@ class Barra extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <a className="navbar-brand" href="#">La Mejor Tienda </a>
+            <Link className="navbar-brand" to="/app">La Mejor Tienda </Link>
           </div>
 
          
@@ -28,9 +28,9 @@ class Barra extends React.Component {
           
             <ul className="nav navbar-nav navbar-right">
               
-              <li><a href="#"><i className="glyphicon glyphicon-th">
+              <li><Link to="/app"><i className="glyphicon glyphicon-th">
             
-              </i></a></li>
+              </i></Link></li>
               
 
               <li><Link to ="/carrito"><i className="glyphicon glyphicon-shopping-cart">
