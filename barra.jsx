@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 class Barra extends React.Component {
   constructor (){
     super()
-    this.state = {
-      totalCarrito : 0
-    }
+   
   }
   render(){
     return (
@@ -19,7 +17,7 @@ class Barra extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <Link className="navbar-brand" to="/app">La Mejor Tienda </Link>
+            <Link className="navbar-brand" to="/home">La Mejor Tienda </Link>
           </div>
 
          
@@ -28,13 +26,13 @@ class Barra extends React.Component {
           
             <ul className="nav navbar-nav navbar-right">
               
-              <li><Link to="/app"><i className="glyphicon glyphicon-th">
+              <li><Link to="/home"><i className="glyphicon glyphicon-th">
             
               </i></Link></li>
               
 
-              <li><Link to ="/carrito"><i className="glyphicon glyphicon-shopping-cart">
-              <span className="label label-danger">{this.state.totalCarrito}</span>
+              <li><Link to ="/home/carrito"><i className="glyphicon glyphicon-shopping-cart">
+              <span className="label label-danger">{this.props.totalCarrito}</span>
               </i></Link></li>
 
                  <li><Link to ="/"><i className="glyphicon glyphicon-log-out">

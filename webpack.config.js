@@ -11,7 +11,9 @@ var config ={
     inline: true,
     port: 8080
   },
-
+  devServer: {
+    historyApiFallback: true,
+  },
   module:{
     loaders:[
       {

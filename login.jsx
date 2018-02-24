@@ -13,7 +13,7 @@ class Login extends React.Component{
 			event.preventDefault();
 		if (this.state.email == "gabioh2012@gmail.com" && this.state.pass=="sex2004" ){
 			console.log("Entro ");
-			this.props.history.push("/app");
+			this.props.history.push("/home");
 			
 		} else{
 			this.setState({mensaje:'Usuario y/o Contraseña no validos '}) ;

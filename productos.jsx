@@ -1,5 +1,6 @@
 import React from 'react';
-import * as request from 'superagent'
+import * as request from 'superagent';
+import { Link } from 'react-router-dom';
 
 import Producto from './lista-productos.jsx';
 class Productos extends  React.Component {
@@ -11,6 +12,8 @@ class Productos extends  React.Component {
 
 		}
 		this.masCantidad = this.masCantidad.bind(this);
+
+
 	}
 	componentWillMount (){
 		request
@@ -19,8 +22,9 @@ class Productos extends  React.Component {
 			if (err) console.log("Error al conectarse con la base de datos :",  err);
 
 			this.state.productos = JSON.parse(res.text);
-			console.log(this.state.productos);
-		})
+			
+		});
+
 	}
 	masCantidad(e){
 		e.preventDefault();
@@ -28,14 +32,26 @@ class Productos extends  React.Component {
 
 	}
 
+
 	render(){
 		return(
 			<div className = "container">
-				<h2>Catalogo de productos</h2>
+				<h2  >Catalogo de productos</h2>
 				<div className="row">
 					{this.state.productos.map((prod,i)=>(
-						<Producto key={i} nombre={prod.nombre} precio={prod.precio} stock={prod.stock} imagen={prod.imagen}  >
-						</Producto>
+							<div  key={i} className="col-md-3 ">
+								<div className ="thumbnail"	>
+									<h3>{prod.nombre}</h3>
+									<img src={prod.imagen}  className="img-responsive"/>
+									<p>Precio: <strong> ${prod.precio}</strong> </p>
+									<p>U. Disponibles:  <strong> {prod.stock}</strong> </p>
+									<div className="row">
+										<div className="col-md-4"><Link to = "/home/item/${prod.nombre}" className="btn btn-primary">Ver Mas</Link> </div>
+										<div className="col-md-4"><a onMouseUp = {this.props.addUp} onClick={this.props.add( prod[i])}className="btn btn-danger">Agregar</a> </div>
+										<div className="col-md-4"><input  type="number"  className ="form-control" /></div>
+									</div>
+								</div>
+							</div>
 					))}
 				</div>
 		
