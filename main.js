@@ -9,7 +9,9 @@ import Item from './item.jsx';
 
 
 ReactDom.render(
+	<BrowserRouter>
 		<App /> 
+	</BrowserRouter>	
 		,
 		document.getElementById('app')
 	);

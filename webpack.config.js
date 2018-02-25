@@ -12,7 +12,7 @@ var config ={
     port: 8080
   },
   devServer: {
-    historyApiFallback: true,
+    historyApiFallback: true
   },
   module:{
     loaders:[
