@@ -49,7 +49,7 @@ class Productos extends  React.Component {
 
 		return(
 			<div className = "container">
-				 <div class="panel panel-body">	
+				 <div className="panel panel-body">	
 				 	<div className="row" >
 				 		<div className="col-md-6">	
 							<h2  >Catalogo de productos</h2>

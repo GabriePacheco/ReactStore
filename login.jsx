@@ -1,23 +1,39 @@
 import React from 'react';
 import { Link, Redirect , withRouter } from 'react-router-dom'
 import ReactDOM from 'react-dom';
+import * as request from 'superagent';
+
 class Login extends React.Component{
 	constructor(){
 		super();
-		this.state = {email : '', pass:'', mensaje:''}; 
+		this.state = {email : '', pass:'', mensaje:'' , logeado: false}; 
 		this.validar = this.validar.bind(this) ;
 		this.cambiar = this.cambiar.bind(this);
+
+
 	}
 
 	validar(event){
-			event.preventDefault();
-		if (this.state.email == "gabioh2012@gmail.com" && this.state.pass=="sex2004" ){
+		event.preventDefault();
+		request 
+		.get("https://webnexu-dfce4.firebaseio.com/usuarios/.json" )
+		.then((res) => {
+			if (res.body.email== this.state.email && res.body.pass == this.state.pass){
+					this.setState({logeado: true});
+					this.props.history.push("/home");
+				}else{
+					this.setState({mensaje:'Usuario y/o Contraseña no validos '}) ;
+
+				}
+		});	
+
+		/*if (this.state.email == "gabioh2012@gmail.com" && this.state.pass=="sex2004" ){
 			console.log("Entro ");
 			this.props.history.push("/home");
 			
 		} else{
 			this.setState({mensaje:'Usuario y/o Contraseña no validos '}) ;
-		}
+		}*/
 	
 	}
 	cambiar(event) {
