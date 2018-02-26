@@ -4,10 +4,11 @@ import Login from './login.jsx';
 import Home from './home.jsx';
 import Item from './item.jsx';
 import Carrito from './carrito.jsx';
+
 class App extends React.Component {
 	render(){
 		return(
-			<div>
+			<div className="appClass" >
 			
 				<div>
 			

@@ -6,7 +6,15 @@ class Barra extends React.Component {
    
   }
   render(){
+    let clasName =''
+      if(this.props.totalCarrito > 0 ){
+        clasName ="label label-danger";
+      }else {
+        clasName ="hidden-md hidden-xs";
+      }
+
     return (
+    <div className="container">  
        <nav className="navbar navbar-default">
         <div className="container-fluid">
           
@@ -32,7 +40,7 @@ class Barra extends React.Component {
               
 
               <li><Link to ="/home/carrito"><i className="glyphicon glyphicon-shopping-cart">
-              <span className="label label-danger">{this.props.totalCarrito}</span>
+              <span className={clasName}>{this.props.totalCarrito}</span>
               </i></Link></li>
 
                  <li><Link to ="/"><i className="glyphicon glyphicon-log-out">
@@ -43,6 +51,7 @@ class Barra extends React.Component {
           </div>
         </div>
       </nav>
+     </div> 
 
       );
   }

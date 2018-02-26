@@ -32,10 +32,12 @@ class Login extends React.Component{
   	}
 	render(){
 		return(
-			<div className = "container">
+			<div className = "login">
 				<div className="row">
 					<div className = "col-md-6 col-md-offset-3">
+
 						<form onSubmit={this.validar} className="form-horizontal">
+							<h2>Inicio de seción</h2>
 							<div className="form-group">
 								<label>Correo Electrónico</label>
 								<input type="email" className="form-control" name="email" id = "email" placeholder="Ingrese su E-mail" required  value = {this.state.email}  onChange ={this.cambiar}/>
@@ -49,7 +51,7 @@ class Login extends React.Component{
 								<button className="btn btn-primary">Entrar</button>
 								 
 							</div>
-							<div>{this.state.mensaje}</div>
+							<div className = "error">{this.state.mensaje}</div>
 			
 						</form>
 					</div>

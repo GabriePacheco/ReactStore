@@ -12,7 +12,7 @@ class Home extends React.Component {
 			totalCarrito :0
 		}
 		this.masCarrito = this.masCarrito.bind(this);
-		
+		this.pagar = this.pagar.bind(this);
 	}
 	
 
@@ -30,16 +30,24 @@ class Home extends React.Component {
 		this.state.carrito.push(compra);
 
 	}
+	pagar (){
+
+		//llamar a base de datos para Guardar 
+		this.setState({carrito: [], totalCarrito:0});
+
+	}
 
 	render () {
 		return (
-			<div>
-				<Barra totalCarrito={this.state.totalCarrito} ></Barra>
-				<Switch>		
-					<Route exact  path='/home'   render={() => <Productos add={this.masCarrito} addCarrito = {this.cargar.bind(this)}></Productos>} />
-					<Route path='/home/carrito'  render={()=> <Carrito compras={this.state.carrito} ></Carrito>} />
-					<Route path='/home/item/:name'  component={Item}  />
-				</Switch>
+			<div className="home">
+			
+					<Barra totalCarrito={this.state.totalCarrito} ></Barra>
+					<Switch>		
+						<Route exact  path='/home'   render={() => <Productos add={this.masCarrito} addCarrito = {this.cargar.bind(this)}></Productos>} />
+						<Route path='/home/carrito'  render={()=> <Carrito compras={this.state.carrito} onPago="this.pagar" ></Carrito>} />
+						<Route path='/home/item/:name'  component={Item}  />
+					</Switch>
+				 	
 			</div>
 		);
 	}
